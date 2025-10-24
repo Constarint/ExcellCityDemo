@@ -1,0 +1,1151 @@
+{
+	"info": {
+		"_postman_id": "d91aa952-5872-4d31-bc35-2ef02ce980b1",
+		"name": "ExcellCity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2178839"
+	},
+	"item": [
+		{
+			"name": "Orion Context Broker Copy",
+			"item": [
+				{
+					"name": "Get all types",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/types",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single type",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/types/NoiseLevelObserved",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"types",
+								"NoiseLevelObserved"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all entities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create entity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"myEntity\",\n\t\"type\": \"myType\",\n\t\"description\": {\n\t\t\"value\": \"My happy entity\",\n\t\t\"type\": \"Text\"\n\t},\n\t\"online\": {\n\t\t\"value\": true,\n\t\t\"type\": \"Boolean\"\n\t},\n\t\"temperature\": {\n\t\t\"value\": 42.3,\n\t\t\"type\": \"Number\"\n\t}\n}\n\t\t"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create entity (keyValues)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"CAM7\",\n    \"type\": \"VehiclesCounter\",\n    \"description\": \"Conteo de vehículos\",\n    \"location\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n            -3.734511592,\n            40.297203367\n        ]\n    },\n    \"addressLocality\": \"Majadahonda\"\n}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities?options=keyValues",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "options",
+									"value": "keyValues"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single entity",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities/myEntity",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								"myEntity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update entity attributes (append & update)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"online\": {\n\t\t\"value\": false,\n\t\t\"type\": \"Boolean\"\n\t}\n}\n\t\t"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities/myEntity/attrs",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								"myEntity",
+								"attrs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update entity attributes (strict update)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"online\": {\n\t\t\"value\": false,\n\t\t\"type\": \"Boolean\"\n\t}\n}\n\t\t"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities/myEntity/attrs",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								"myEntity",
+								"attrs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update entity attributes (replace)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"description\": {\n\t\t\"value\": \"My even more happy entity\",\n\t\t\"type\": \"Text\"\n\t},\n\t\"status\": {\n\t\t\"value\": \"active\",\n\t\t\"type\": \"Text\"\n\t},\n\t\"humidity\": {\n\t\t\"value\": 61.23,\n\t\t\"type\": \"Number\"\n\t}\n}\t\t"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities/myEntity/attrs",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								"myEntity",
+								"attrs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Batch creation/update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"actionType\": \"append\",\n\t\"entities\": [\n\t\t{\n\t\t\t\"id\": \"myEntity1\",\n\t\t\t\"type\": \"myType\",\n\t\t\t\"description\": {\n\t\t\t\t\"value\": \"My happy entity\",\n\t\t\t\t\"type\": \"Text\"\n\t\t\t},\n\t\t\t\"online\": {\n\t\t\t\t\"value\": true,\n\t\t\t\t\"type\": \"Boolean\"\n\t\t\t},\n\t\t\t\"temperature\": {\n\t\t\t\t\"value\": 42.3,\n\t\t\t\t\"type\": \"Number\"\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"id\": \"myEntity2\",\n\t\t\t\"type\": \"myType\",\n\t\t\t\"description\": {\n\t\t\t\t\"value\": \"My second happy entity\",\n\t\t\t\t\"type\": \"Text\"\n\t\t\t},\n\t\t\t\"online\": {\n\t\t\t\t\"value\": false,\n\t\t\t\t\"type\": \"Boolean\"\n\t\t\t},\n\t\t\t\"temperature\": {\n\t\t\t\t\"value\": -12,\n\t\t\t\t\"type\": \"Number\"\n\t\t\t}\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/op/update",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"op",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single entity",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities/myEntity",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								"myEntity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get attribute",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities/myEntity/attrs/temperature",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								"myEntity",
+								"attrs",
+								"temperature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update attribute",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"Number\",\n    \"value\": -10.2\n}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities/myEntity/attrs/temperature",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								"myEntity",
+								"attrs",
+								"temperature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete attribute",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities/myEntity/attrs/temperature",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								"myEntity",
+								"attrs",
+								"temperature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get attribute value as text",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities/myEntity/attrs/description/value",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								"myEntity",
+								"attrs",
+								"description",
+								"value"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set attribute value as text",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"New description\""
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/entities/myEntity/attrs/description/value",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								"myEntity",
+								"attrs",
+								"description",
+								"value"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all subscriptions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/subscriptions",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create subscription",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"A subscription to get info about myEntity\",\r\n  \"subject\": {\r\n    \"entities\": [\r\n      {\r\n        \"id\": \"myEntity\",\r\n        \"type\": \"myType\"\r\n      }\r\n    ],\r\n    \"condition\": {\r\n      \"attrs\": [ ]\r\n    }\r\n  },\r\n  \"notification\": {\r\n    \"http\": {\r\n      \"url\": \"http://putsreq.com/aGSZ2hnoTXRaO4JHZNY1\"\r\n    },\r\n    \"attrs\": [\r\n      \"temperature\"\r\n    ]\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/subscriptions",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create subscription (custom notification)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"A subscription to get info about myEntity\",\r\n  \"subject\": {\r\n    \"entities\": [\r\n      {\r\n        \"id\": \"myEntity\",\r\n        \"type\": \"myType\"\r\n      }\r\n    ],\r\n    \"condition\": {\r\n      \"attrs\": [ ]\r\n    }\r\n  },\r\n  \"notification\": {\r\n    \"httpCustom\": {\r\n      \"url\": \"http://putsreq.com/aGSZ2hnoTXRaO4JHZNY1\",\r\n      \"headers\": {\r\n      \t\"Content-Type\": \"application/xml\",\r\n      \t\"X-EntityType\": \"${type}\"\r\n      },\r\n      \"qs\": {\r\n      \t\"entityId\": \"${id}\"\r\n      },\r\n      \"payload\": \"%3Ctemperature%3E${temperature}%3C/temperature%3E\"\r\n    },\r\n    \"attrs\": [\r\n      \"temperature\"\r\n    ]\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/subscriptions",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create subscription (custom notification only header)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Notificacion para vaciados\",\n  \"subject\": {\n    \"entities\": [\n      {\n        \"id\": \".*\",\n        \"type\": \"WasteContainer\"\n      }\n    ],\n    \"condition\": {\n      \"attrs\": [\n        \"TimeInstant\"\n      ]\n    }\n  },\n  \"notification\": {\n    \"httpCustom\": {\n      \"url\": \"http://putsreq.com/aGSZ2hnoTXRaO4JHZNY1\",\n        \"headers\": {\n          \"fiware-servicepath\": \"/emptyings\"  \n      }\n    },\n    \"attrs\": [\n      \"dateModified\", \"dateCalculatedEmptyings\", \"emptyingValue\", \"location\", \"storedWasteKind\", \"badEfficiency\", \"goodEfficiency\"\n    ]\n  }\n}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/subscriptions",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single subscription",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/subscriptions/59e8c603779d7a40b18c714d",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"subscriptions",
+								"59e8c603779d7a40b18c714d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update subscription",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\": \"inactive\"\n}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/subscriptions/59e8c603779d7a40b18c714d",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"subscriptions",
+								"59e8c603779d7a40b18c714d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single subscription",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/subscriptions/59e8c603779d7a40b18c714d",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"subscriptions",
+								"59e8c603779d7a40b18c714d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"dataProvided\": {\n    \"entities\": [\n      {\n        \"id\": \"Street4\",\n        \"type\": \"Street\"\n      }\n    ],\n    \"attrs\": [\n      \"temperature\"\n    ]\n  },\n  \"provider\": {\n    \"http\": {\n      \"url\": \"http://sensor48.mycity.com/v2\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_CB}}/v2/registrations",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_CB}}"
+							],
+							"path": [
+								"v2",
+								"registrations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Keyrock",
+			"item": [
+				{
+					"name": "Create token with Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"admin@test.com\",\n  \"password\": \"test\"\n}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{ENDPOINT_IDM}}/v1/auth/tokens",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{ENDPOINT_IDM}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"tokens"
+							]
+						},
+						"description": "The following example logs in using the Admin Super-User - it is the equivalent of using the log-in screen of the GUI.\n\nThe response header returns an `X-Subject-token` which identifies who has logged on the application.\nThis token is required in all subsequent requests to gain access."
+					},
+					"response": []
+				},
+				{
+					"name": "Get token info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-token",
+								"value": "{{X-Auth-token}}"
+							},
+							{
+								"key": "X-Subject-token",
+								"value": "{{X-Subject-token}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{ENDPOINT_IDM}}/v1/auth/tokens",
+							"protocol": "http",
+							"host": [
+								"{{ENDPOINT_IDM}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"tokens"
+							]
+						},
+						"description": "You can use the long-lasting  `X-Auth-token=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa` to pretend to be Alice throughout this\ntutorial. \n\nThe presence of a (time-limited) token is sufficient to find out more information about the user.\nTo find information about Bob, use the long-lasting token `X-Subject-token=bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb`\n\nThis request indicates that *the\nuser authorized with the token `{{X-Auth-token}}` (i.e Alice) is enquiring about the user holding the token  `{{X-Subject-token}}`* i.e Bob \n\nThe response will return the details of the associated user. As you can see Bob holds a long-lasting token until 2026."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Securing the Orion Context Broker",
+			"item": [
+				{
+					"name": "PEP Proxy - No Access to Orion without an Access Token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{X-Access-token}}"
+							},
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}",
+								"type": "text"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{ENDPOINT_PEPPROXY}}/v2/entities/",
+							"protocol": "http",
+							"host": [
+								"{{ENDPOINT_PEPPROXY}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								""
+							]
+						},
+						"description": "Secured Access can be ensured by requiring all requests to the secured service are made indirectly via a PEP Proxy (in this case the PEP Proxy is found in front of the Context Broker). Requests must include an `X-Auth-Token`, failure to present a valid token results in a denial of access.\n\nif a request to the PEP Proxy is made without any access token as shown, the response is a **401 Unauthorized** error code, with a text explanation."
+					},
+					"response": []
+				},
+				{
+					"name": "Keyrock - User Obtains an Access Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{Authorization}}",
+								"description": "base64 concatenation of Client Id and Client Secret"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "username=admin@test.com&password=test&grant_type=password"
+						},
+						"url": {
+							"raw": "http://{{ENDPOINT_IDM}}/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"{{ENDPOINT_IDM}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						},
+						"description": "To log in to an application using the user-credentials flow send a POST request to the `oauth2/token` endpoint with the `grant_type=password`\n\nThe response returns an `access_code` to identify the user.\n\nAn `access_code` can also be done by entering the Tutorial Application on http:/localhost and logging in using any of the OAuth2 grants\non the page. A successful log-in will return an access token."
+					},
+					"response": []
+				},
+				{
+					"name": "PEP Proxy - Accessing Orion with an Access Token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "d3d83354202453ca3dcf47e7bbde0e37c19fc376"
+							},
+							{
+								"key": "Fiware-Service",
+								"value": "{{SERVICE}}",
+								"type": "text"
+							},
+							{
+								"key": "Fiware-ServicePath",
+								"value": "{{SUBSERVICE}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{ENDPOINT_PEPPROXY}}/v2/entities/",
+							"protocol": "http",
+							"host": [
+								"{{ENDPOINT_PEPPROXY}}"
+							],
+							"path": [
+								"v2",
+								"entities",
+								""
+							]
+						},
+						"description": "If a request to the PEP Proxy is made including a valid access token in the `X-Auth-Token` header as shown, the request\nis permitted and the service behind the PEP Proxy (in this case the Orion Context Broker) will return the data as\nexpected."
+					},
+					"response": []
+				}
+			],
+			"description": "![](https://fiware.github.io/tutorials.PEP-Proxy/img/pep-proxy-orion.png)\n\n## Securing Orion - PEP Proxy Configuration\n\nThe `orion-proxy` container is an instance of FIWARE **Wilma** listening on port `1027`, it is configured to forward traffic to\n`orion` on port `1026`, which is the default port that the Orion Context Broker is listening to for NGSI Requests.\n\n```yaml\n  orion-proxy:\n    image: quay.io/fiware/pep-proxy\n    container_name: fiware-orion-proxy\n    hostname: orion-proxy\n    networks:\n      default:\n        ipv4_address: 172.18.1.10\n    depends_on:\n      - keyrock\n    ports:\n      - \"1027:1027\"\n    expose:\n      - \"1027\"\n    environment:\n      - PEP_PROXY_APP_HOST=orion\n      - PEP_PROXY_APP_PORT=1026\n      - PEP_PROXY_PORT=1027\n      - PEP_PROXY_IDM_HOST=keyrock\n      - PEP_PROXY_HTTPS_ENABLED=false\n      - PEP_PROXY_AUTH_ENABLED=false\n      - PEP_PROXY_IDM_SSL_ENABLED=false\n      - PEP_PROXY_IDM_PORT=3005\n      - PEP_PROXY_APP_ID=tutorial-dckr-site-0000-xpresswebapp\n      - PEP_PROXY_USERNAME=pep_proxy_00000000-0000-0000-0000-000000000000\n      - PEP_PASSWORD=test\n      - PEP_PROXY_PDP=idm\n      - PEP_PROXY_MAGIC_KEY=1234\n```\n\nThe `PEP_PROXY_APP_ID` and `PEP_PROXY_USERNAME` would usually be obtained by adding new entries to the application in **Keyrock**,\nhowever, in this tutorial, they have been pre-defined by populating the **MySQL** database with data on start-up.\n\nThe `orion-proxy` container is listening on a single port:\n\n* The PEP Proxy Port - `1027` is exposed purely for tutorial access - so that cUrl or Postman can requests directly to the **Wilma** instance\n  without being part of the same network. \n\n\n| Key |Value|Description|\n|-----|-----|-----------|\n| PEP_PROXY_APP_HOST |`orion` | The hostname of the service behind the PEP Proxy |\n| PEP_PROXY_APP_PORT |`1026` | The port of the service behind the PEP Proxy |\n| PEP_PROXY_PORT |`1027` | The port that the PEP Proxy is listening on |\n| PEP_PROXY_IDM_HOST | `keyrock`| The hostname for the Identity Manager |\n| PEP_PROXY_HTTPS_ENABLED | `false`| Whether the PEP Proxy itself is running under HTTPS |\n| PEP_PROXY_AUTH_ENABLED | `false`| Whether the PEP Proxy is checking for Authorization |\n| PEP_PROXY_IDM_SSL_ENABLED | `false`| Whether the Identity Manager is running under HTTPS |\n| PEP_PROXY_IDM_PORT | `3005`|  The Port for the Identity Manager instance|\n| PEP_PROXY_APP_ID | `tutorial-dckr-site-0000-xpresswebapp`| |\n| PEP_PROXY_USERNAME | `pep_proxy_00000000-0000-0000-0000-000000000000`|  The Username for the PEP Proxy |\n| PEP_PASSWORD | `test`|  The Password for the PEP Proxy |\n| PEP_PROXY_PDP | `idm`| The Type of service offering the Policy Decision Point|\n| PEP_PROXY_MAGIC_KEY | `1234` | |\n\nFor this example, the PEP Proxy is checking for Level 1 - *Authentication Access* not  Level 2 - *Basic Authorization* or \nLevel 3 - *Advanced Authorization*. \n\n\n\n## Securing Orion - Application Configuration\n\nThe tutorial application has already been registered in **Keyrock**, programmatically the tutorial application will\nbe making requests to the **Wilma** PEP Proxy in front of the **Orion Conext Broker**. Every request must now include\nan additional `access_token` header.\n\n```yaml\n  tutorial-app:\n    image: quay.io/fiware/tutorials.context-provider\n    hostname: tutorial-app\n    container_name: tutorial-app\n    depends_on:\n        - orion-proxy\n        - iot-agent\n        - keyrock\n    networks:\n      default:\n        ipv4_address: 172.18.1.7\n        aliases:\n          - iot-sensors\n    expose:\n        - \"3000\"\n        - \"3001\"\n    ports:\n        - \"3000:3000\"\n        - \"3001:3001\"\n    environment:\n        - \"WEB_APP_PORT=3000\"\n        - \"SECURE_ENDPOINTS=true\"\n        - \"CONTEXT_BROKER=http://orion-proxy:1027/v2\"\n        - \"KEYROCK_URL=http://localhost\"\n        - \"KEYROCK_IP_ADDRESS=http://172.18.1.5\"\n        - \"KEYROCK_PORT=3005\"\n        - \"KEYROCK_CLIENT_ID=tutorial-dckr-site-0000-xpresswebapp\"\n        - \"KEYROCK_CLIENT_SECRET=tutorial-dckr-site-0000-clientsecret\"\n        - \"CALLBACK_URL=http://localhost:3000/login\"\n```\n\nAll of the `tutorial` container settings have been described in previous tutorials. One important change is necessary however,\nrather than accessing **Orion** directly on the default port `1026` as shown in all previous tutorials, all context broker\ntraffic is now sent to `orion-proxy` on port `1027`. As a reminder, the relevant settings are detailed below:\n\n| Key |Value|Description|\n|-----|-----|-----------|\n|WEB_APP_PORT|`3000`|Port used by web-app which displays the login screen & etc.|\n|KEYROCK_URL|`http://localhost`| This is URL of the **Keyrock** Web Front-End itself, used for redirection when forwarding users |\n|KEYROCK_IP_ADDRESS|`http://172.18.1.5`| This is URL of the **Keyrock** OAuth Communications |\n|KEYROCK_PORT|`3005` | This is the port that **Keyrock** is listening on.|\n|KEYROCK_CLIENT_ID|`tutorial-dckr-site-0000-xpresswebapp`| The Client ID defined by Keyrock for this application |\n|KEYROCK_CLIENT_SECRET|`tutorial-dckr-site-0000-clientsecret`| The Client Secret defined by Keyrock for this application |\n|CALLBACK_URL|`http://localhost:3000/login`| The callback URL used by Keyrock when a challenge has succeeded.|\n\n## Securing Orion - Start up\n\nTo start the system with a PEP Proxy protecting  access to **Orion**, run the following command:\n\n```console\n./services orion\n```\n\n\n### Video : Securing A REST API\n\n[![](http://img.youtube.com/vi/coxFQEY0_So/0.jpg)](https://www.youtube.com/watch?v=coxFQEY0_So \"Securing a REST API\")\n\nClick on the image above to see a video about securing a REST API using the Wilma PEP Proxy\n\n\n\n## Securing Orion - Sample Code\n\nWhen a User logs in to the application using the User Credentials Grant, an `access_token` is obtained which identifies the User.\nThe  `access_token`  is stored in session:\n\n```javascript\nfunction userCredentialGrant(req, res){\n    debug('userCredentialGrant');\n\n    const email = req.body.email;\n    const password = req.body.password;\n\n    oa.getOAuthPasswordCredentials(email, password)\n    .then(results => {\n        req.session.access_token =  results.access_token;\n        return;\n    })\n}\n```\n\nFor each subsequent request, the `access_token` is supplied in the `X-Auth-Token` Header\n\n```javascript\nfunction setAuthHeaders(req){\n  const headers = {};\n  if (req.session.access_token) {\n    headers['X-Auth-Token'] = req.session.access_token;\n  }\n  return headers;\n}\n```\n\nFor example, when buying an item, two requests are made, the same  `X-Auth-Token` Header must be added to each request - therefore\nthe User can be identified and access granted.\n\n```javascript\nasync function buyItem(req, res) {\n\n  const inventory = await retrieveEntity(req.params.inventoryId, {\n    options: 'keyValues',\n    type: 'InventoryItem',\n  }, setAuthHeaders(req));\n  const count = inventory.shelfCount - 1;\n\n  await updateExistingEntityAttributes(\n    req.params.inventoryId,\n    { shelfCount: { type: 'Integer', value: count } },\n    {\n      type: 'InventoryItem',\n    }, setAuthHeaders(req)\n  );\n  res.redirect(`/app/store/${inventory.refStore}/till`);\n}\n```",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
